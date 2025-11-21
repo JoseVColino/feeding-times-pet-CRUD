@@ -1,0 +1,7 @@
+create TABLE PetFeeding (
+ID integer primary key,
+Pet_Name text not NULL, 
+Person_Name text,
+Amount_servings REAL CHECK (Amount_servings > 0 AND Amount_servings < 10),
+Time_Feeding datetime DEFAULT CURRENT_TIMESTAMP
+);
