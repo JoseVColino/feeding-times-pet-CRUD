@@ -1,6 +1,6 @@
-import sqlite3
+from sqlalchemy import select
+from .model import PetFeeding
 import sqlalchemy as sa
-from contextlib import contextmanager
 
 
 class PetFeedingRepository:
@@ -13,7 +13,9 @@ class PetFeedingRepository:
         ...
     
     def list_all(self):
-        ...
+        stmt = select(PetFeeding)
+        result = self.session.scalars(stmt)
+        return result
 
     def search_by_id(self,id:int):
         ...
@@ -24,11 +26,3 @@ class PetFeedingRepository:
     def delete_by_id(self,id:int):
         ...
 
-    
-
-if __name__ ==  '__main__':
-    repo = PetFeedingRepository()
-    with repo.get_connection() as conn:
-        cursor = conn.cursor()
-        cursor.execute('SELECT * FROM PetFeeding')
-        print(cursor.fetchall())
