@@ -1,15 +1,3 @@
----
-title: "Vaga estágio dti digital"
-source: "https://chatgpt.com/c/691e2d72-ad38-8331-9f6a-4f9a6b639675"
-author:
-  - "[[ChatGPT]]"
-published:
-created: 2025-11-23
-description: "O ChatGPT é seu assistente de IA para uso diário. Converse com a IA mais avançada para explorar ideias, resolver problemas e aprender mais rápido."
-tags:
-  - "clippings"
----
-```
 # 🐾 Pet Feeding — CRUD Application (Estágio Dev dti digital)
 
 Este projeto implementa um CRUD simples para gerenciar registros de alimentação de pets, conforme solicitado no case técnico do processo seletivo para estágio em desenvolvimento da **dti digital**.
@@ -102,7 +90,7 @@ A entidade **PetFeeding** modela um registro de alimentação contendo:
 
 Código ORM utilizado:
 
-\`\`\`python
+``` python
 from datetime import datetime
 from sqlalchemy import String, func, CheckConstraint
 from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column
@@ -131,7 +119,7 @@ class PetFeeding(Base):
 O case exige um arquivo `.sql` contendo a criação da tabela.  
 Abaixo está a versão equivalente ao modelo acima:
 
-```
+``` SQL
 CREATE TABLE PetFeeding (
     id INTEGER PRIMARY KEY,
     pet_name TEXT NOT NULL,
@@ -142,7 +130,7 @@ CREATE TABLE PetFeeding (
 ```
 
 Este arquivo está incluído em:  
-`/sql/create_table.sql`
+`/schema.sqlite3`
 
 ---
 
@@ -176,10 +164,10 @@ source venv/bin/activate   # Linux/macOS
 venv\Scripts\activate      # Windows
 ```
 
-### 2\. Instalar dependências
+### 2\. Instalar dependências (sqlalchemy)
 
 ```
-pip install -r requirements.txt
+pip install -r sqlalchemy
 ```
 
 ### 3\. Executar o programa
